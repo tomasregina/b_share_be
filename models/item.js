@@ -29,12 +29,24 @@ module.exports = class Item {
         }
     }
 
-    async getAllItems() {
-        const sql = 'SELECT * FROM items';
+    async getAllItemsCount() {
+        // const sql = 'SELECT * FROM items';
+        const sql = 'SELECT count(*) allItemsCount FROM items';
         try {
-            const allItems = await db.query(sql);
-            console.log('allITems', allItems);
-            return allItems;
+            const allItemsCount = await db.query(sql);
+            // console.log('allITems', allItems);
+            return allItemsCount;
+        }
+        catch (e) {
+            throw e;
+        }
+    }
+
+    async loadItems(limit, offset) {
+        const sql = `SELECT * FROM ITEMS LIMIT ${limit} OFFSET ${offset}`;
+        try {
+            const items = await db.query(sql);
+            return items[0];
         }
         catch (e) {
             throw e;
