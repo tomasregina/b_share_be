@@ -67,11 +67,11 @@ app.get('/', (req, res, next) => {
 
 
 passport.serializeUser(function(user, done) {
-  console.log('serializedUser', user);
+
   done(null, {id: user.id, email: user.email, username: user.username, address: user.address});
 });
 passport.deserializeUser(function(user, done) {
-  console.log('desiarilerUser', user);
+  
   done(null, {id: user.id, email: user.email, username: user.username, address: user.address});
 });
 

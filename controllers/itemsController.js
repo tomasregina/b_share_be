@@ -41,10 +41,10 @@ exports.loadItems = async (req, res, next) => {
     const offset = Number.parseInt(req.query.offset, 10) === 1 ? 0 : Number.parseInt(req.query.offset,10) + 10; 
     try {
         const loadedItems = await item.loadItems(limit, offset);
-        res.json({loadedItems: loadedItems});
+        res.json(loadedItems);
     }
     catch (e) {
         console.log('e', e);
     }
-    console.log('aaaaaaa');
+    
 }

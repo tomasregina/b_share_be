@@ -15,7 +15,7 @@ module.exports = class User {
         const sql = 'SELECT * FROM users WHERE email = ' + mysql.escape(email);
         try {
             const user = await db.query(sql);
-            console.log('user vo findOne', user[0][0]);
+            
             return user[0][0];
         }
         catch (e) {

@@ -34,7 +34,7 @@ module.exports = class Item {
         const sql = 'SELECT count(*) allItemsCount FROM items';
         try {
             const allItemsCount = await db.query(sql);
-            // console.log('allITems', allItems);
+            
             return allItemsCount;
         }
         catch (e) {
